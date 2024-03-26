@@ -42,34 +42,6 @@ public class CalculationService {
         return true;
     }
 
-    @SneakyThrows
-    public static BigDecimal getMinFromSet(Set<BigDecimal> keys) {
-        if (keys.isEmpty()) throw new IllegalAccessException("No elements in key set.");
-        return keys.stream().min(BigDecimal::compareTo).get();
-
-    }
-
-    public static BigDecimal distanceOf(Entry storedEntry, Entry entry) {
-        List<BigDecimal> entryAttributes = entry.getInputs();
-        List<BigDecimal> storedEntryAttributes = storedEntry.getInputs();
-        List<BigDecimal> distanceSquared = new ArrayList<>();
-
-        for (int i = 0; i < entryAttributes.size(); i++) {
-            BigDecimal distance = entryAttributes.get(i).subtract(storedEntryAttributes.get(i));
-            BigDecimal squared = distance.multiply(distance);
-
-            distanceSquared.add(squared);
-        }
-
-        BigDecimal underSqrt = new BigDecimal(0);
-
-        for (BigDecimal square : distanceSquared) {
-            underSqrt = underSqrt.add(square);
-        }
-
-        return underSqrt.sqrt(MathContext.DECIMAL128);
-    }
-
     public static List<BigDecimal> stringsToDecimalList(String[] attributes) {
         List<BigDecimal> decimals = new ArrayList<>();
 
@@ -78,20 +50,6 @@ public class CalculationService {
         }
 
         return decimals;
-    }
-
-    public static String getAttributesStringFromAttributes(List<BigDecimal> decimals) {
-        StringBuilder attrLine = new StringBuilder();
-
-        for (BigDecimal d : decimals) {
-            attrLine.append(d).append(",");
-        }
-
-        return attrLine.substring(0, attrLine.length() - 1);
-    }
-
-    public static boolean isValidK(int k, int trainFileSize) {
-        return k >= 1 && k <= trainFileSize;
     }
 
     public static boolean isDouble(String str) {

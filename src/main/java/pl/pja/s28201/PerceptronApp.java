@@ -24,7 +24,7 @@ public class PerceptronApp {
     private static double learningRate = 0.5;
     private static int numEpochs;
     private static double theta = 0.5;
-    private static List<BigDecimal> weights = new ArrayList<>();
+    private final static List<BigDecimal> weights = new ArrayList<>();
 
     public static void main(String[] args) {
         startProgram();

@@ -14,11 +14,9 @@ public class Entry {
 
     private List<BigDecimal> inputs;
     private String entryType;
-//    private List<BigDecimal> weights = new ArrayList<>();
 
     public Entry(List<BigDecimal> inputs) {
         this.inputs = inputs;
-//        initWeights(inputs.size());
     }
 
     public int inputCount() {

@@ -32,10 +32,6 @@ public class EntryRepository {
         return entryTypes;
     }
 
-    public static int entryCount() {
-        return decisionMatrix.size();
-    }
-
     public static int entryAttributesCount() {
         return decisionMatrix.stream().findFirst().get().getInputs().size();
     }
