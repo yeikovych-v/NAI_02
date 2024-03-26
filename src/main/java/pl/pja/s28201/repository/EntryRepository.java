@@ -4,6 +4,7 @@ import pl.pja.s28201.exception.ClassNumberIsNotSupported;
 import pl.pja.s28201.model.Entry;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class EntryRepository {
@@ -34,5 +35,9 @@ public class EntryRepository {
 
     public static int entryAttributesCount() {
         return decisionMatrix.stream().findFirst().get().getInputs().size();
+    }
+
+    public static void shuffleAll() {
+        Collections.shuffle(decisionMatrix);
     }
 }

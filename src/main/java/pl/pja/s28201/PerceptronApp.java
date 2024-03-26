@@ -95,6 +95,8 @@ public class PerceptronApp {
             }
         }
 
+        EntryRepository.shuffleAll();
+
         System.out.println("Called vs Entries: " + called + " vs " + EntryRepository.findAll().size());
     }
 
