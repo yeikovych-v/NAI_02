@@ -26,7 +26,8 @@ public class EntryService {
             BigDecimal attr = new BigDecimal(entryCase[i]);
             entryAttributes.add(attr);
         }
-        String entryType = entryCase[4];
+
+        String entryType = entryCase[entryCase.length - 1];
 
         return new Entry(entryAttributes, entryType);
     }

@@ -14,7 +14,9 @@ public class EntryRepository {
     public static void addAll(List<Entry> entries) {
         decisionMatrix.addAll(entries);
         entryTypes.addAll(getEntryTypesFromEntries(entries));
-        if (entryTypes.size() > 2) throw new ClassNumberIsNotSupported("Perceptron cannot support more than 2 classes.");
+        if (entryTypes.size() > 2) {
+            throw new ClassNumberIsNotSupported("Perceptron cannot support more than 2 classes.");
+        }
     }
 
     private static List<String> getEntryTypesFromEntries(List<Entry> entries) {
